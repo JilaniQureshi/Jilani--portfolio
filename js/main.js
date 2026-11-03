@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize all features
+    initMobileNav();
     init3DTilt();              // FIX: Now properly called
     initShuffleGallery();
     startProfileCarousel();
@@ -214,4 +215,64 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+/* =========================================
+   MOBILE NAVIGATION CONTROLLER
+   ========================================= */
+function initMobileNav() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const backdrop = document.getElementById('navBackdrop');
+
+    if (!navToggle || !navMenu) return;
+
+    function openMenu() {
+        navToggle.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('active');
+        if (backdrop) backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeMenu);
+    }
+
+    // Close when any nav link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    // Close on window resize if crossing desktop breakpoint
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
 }
