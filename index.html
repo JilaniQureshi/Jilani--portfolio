@@ -84,16 +84,22 @@
     <header class="site-header">
         <div class="container header-inner">
             <a href="#" class="logo">Gulam Jilani Qureshi</a>
-            <nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
                 <ul class="nav-list">
-                    <li><a href="#journey">Explore Journey</a></li>
-                    <li><a href="#skills">Expertise & Competencies</a></li>
-                    <li><a href="#case-studies">Impact Stories</a></li>
-                    <li><a href="#beyond">Beyond the Job</a></li>
-                    <li class="nav-cta-item"><a href="https://www.linkedin.com/in/gulam-jilani-qureshi-38089416a/" target="_blank" class="nav-linkedin-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn</a></li>
+                    <li><a href="#journey" class="nav-link">Explore Journey</a></li>
+                    <li><a href="#skills" class="nav-link">Expertise & Competencies</a></li>
+                    <li><a href="#case-studies" class="nav-link">Impact Stories</a></li>
+                    <li><a href="#beyond" class="nav-link">Beyond the Job</a></li>
+                    <li class="nav-cta-item"><a href="https://www.linkedin.com/in/gulam-jilani-qureshi-38089416a/" target="_blank" rel="noopener noreferrer" class="nav-linkedin-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn</a></li>
                 </ul>
             </nav>
         </div>
+        <div class="nav-backdrop" id="navBackdrop"></div>
     </header>
 
     <main>
